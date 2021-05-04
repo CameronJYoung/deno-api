@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:alpine
+    restart: always
+    volumes:
+      - ./:/usr/postgres/
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+  api:
+    build: .
+    restart: always
+    depends_on:
+      - db
+    volumes:
+      - ./:/usr/app
+    ports:
+      - 8080:8080
+    environment:
+      - DB_HOST=db # this should be identical to the database service name
+      - DB_USER=postgres
+      - DB_DATABASE=denotesting
+      - DB_PASSWORD=postgres

@@ -1,0 +1,16 @@
+GET http://localhost:8080/api
+
+###
+GET http://localhost:8080/api/posts
+
+###
+
+POST http://localhost:8080/api/posts
+Content-Type: application/json
+
+// Put post data here
+
+{
+	"username": "34243@@@@",
+	"body": "i'm asdfafdsadfsasdffadscool"
+}
