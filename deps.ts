@@ -7,3 +7,7 @@ export type {
 export {
 	Database, PostgresConnector 
 } from 'https://deno.land/x/denodb/mod.ts';
+
+export {
+	DataTypes, Model
+} from 'https://deno.land/x/denodb/mod.ts';
