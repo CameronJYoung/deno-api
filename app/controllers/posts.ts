@@ -29,7 +29,9 @@ export default {
 		response.body = post;
 	},
 
-	deletePostById: () => {
-
+	deletePostById: async ({ response, params }: { request: any, response: any, params: { id: string } } ) => {
+		const post = await Post.find(params.id)
+		await post.delete();
+		response.body = post;
 	},
 };

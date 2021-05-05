@@ -27,6 +27,10 @@ Content-Type: application/json
 // Put post data here
 
 {
-	"username": "34243@@@@",
-	"body": "i'm asdfafdsadfsasdffadscool"
+	"username": "test user",
+	"body": "Some really cool post!"
 }
+
+###
+
+DELETE http://localhost:8080/api/posts/3
