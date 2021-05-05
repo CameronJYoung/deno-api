@@ -21,12 +21,9 @@ export default {
 	},
 
 	updatePostById: async ({ request, response, params }: { request: any, response: any, params: { id: string } } ) => {
-		const { username, body } = await request.body().value;
-		console.log(username);
-		console.log(body);
+		const { body } = await request.body().value;
 		
 		const post = await Post.find(params.id)
-		post.username = username;
 		post.body = body;
 		await post.update();
 		response.body = post;
