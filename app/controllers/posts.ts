@@ -15,12 +15,21 @@ export default {
 		response.body = { username, body }
 	},
 
-	getPostById: () => {
-
+	getPostById: async ({ response, params }: { response: any, params: { id: string } } ) => {
+		const post = await Post.find(params.id)
+		response.body = post;
 	},
 
-	updatePostById: async () => {
-
+	updatePostById: async ({ request, response, params }: { request: any, response: any, params: { id: string } } ) => {
+		const { username, body } = await request.body().value;
+		console.log(username);
+		console.log(body);
+		
+		const post = await Post.find(params.id)
+		post.username = username;
+		post.body = body;
+		await post.update();
+		response.body = post;
 	},
 
 	deletePostById: () => {

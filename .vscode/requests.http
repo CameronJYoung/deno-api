@@ -5,6 +5,22 @@ GET http://localhost:8080/api/posts
 
 ###
 
+GET http://localhost:8080/api/posts/1
+
+###
+
+PUT http://localhost:8080/api/posts/1
+Content-Type: application/json
+
+// Put updated data here
+
+{
+	"username": "cameronape",
+	"body": "dfsdfgsgdfxcvsdvsdf"
+}
+
+###
+
 POST http://localhost:8080/api/posts
 Content-Type: application/json
 
