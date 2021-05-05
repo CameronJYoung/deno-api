@@ -5,9 +5,5 @@ export type {
 } from "https://deno.land/x/oak/mod.ts";
 
 export {
-	Database, PostgresConnector 
-} from 'https://deno.land/x/denodb/mod.ts';
-
-export {
-	DataTypes, Model
-} from 'https://deno.land/x/denodb/mod.ts';
+	Database, PostgresConnector, DataTypes, Model
+} from "https://deno.land/x/denodb/mod.ts";

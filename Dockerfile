@@ -6,4 +6,6 @@ WORKDIR /usr/app
 
 COPY . .
 
+RUN deno cache deps.ts 
+
 CMD ["run", "--unstable", "--allow-net", "server.ts"]
