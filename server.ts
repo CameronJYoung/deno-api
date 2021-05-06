@@ -1,4 +1,4 @@
-import { Application, Router, RouterContext, Model } from "./deps.ts";
+import { Application, Router, RouterContext } from "./deps.ts";
 
 //route imports
 import postRoutes from './app/routes/posts.ts'
