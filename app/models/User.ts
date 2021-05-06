@@ -1,4 +1,4 @@
-import { DataTypes, Model, bcrypt } from '../../deps.ts';
+import { DataTypes, Model, hash, genSalt } from '../../deps.ts';
 
 export interface UserInterface {
 	id?: string;
@@ -23,7 +23,7 @@ export class User extends Model {
 	};
 
 	static async hashPassword(password: string) {
-		const salt = await bcrypt.genSalt(8);
-		return bcrypt.hash(password, salt);
+		const salt = await genSalt(8);
+		return hash(password, salt);
 	}
 }

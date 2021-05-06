@@ -18,5 +18,7 @@ export {
 } from "https://deno.land/x/nanoid/mod.ts";
 
 // BCRYPT deps
-import * as bcrypt from 'https://deno.land/x/bcrypt@v0.2.4/mod.ts';
-export {bcrypt};
+export {
+	compare, hash, genSalt
+} from 'https://deno.land/x/bcrypt@v0.2.4/mod.ts';
+
