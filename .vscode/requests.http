@@ -1,6 +1,7 @@
 GET http://localhost:8080/api
 
 ###
+
 GET http://localhost:8080/api/posts
 
 ###
@@ -34,3 +35,26 @@ Content-Type: application/json
 ###
 
 DELETE http://localhost:8080/api/posts/3
+
+###
+
+GET http://localhost:8080/api/users
+
+###
+
+GET http://localhost:8080/api/users/2
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+// Put post data here
+
+{
+	"username" : "cameronape",
+	"password" : "testing",
+	"firstname" : "cameron",
+	"lastname" : "young",
+	"role" : "admin"
+}

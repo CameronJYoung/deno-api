@@ -2,6 +2,7 @@ import { Application, Router, RouterContext } from "./deps.ts";
 
 //route imports
 import postRoutes from './app/routes/posts.ts'
+import userRoutes from './app/routes/users.ts'
 
 //db and model imports
 import db from './app/config/db.ts'
@@ -23,6 +24,7 @@ router.get('/api', (context: RouterContext) => {
 
 app.use(router.routes());
 app.use(postRoutes.prefix('/api/posts').routes());
+app.use(userRoutes.prefix('/api/users').routes());
 app.use(router.allowedMethods());
 
 // Listen for requests
