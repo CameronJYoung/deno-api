@@ -1,36 +1,36 @@
 import { RouterContext } from "../../deps.ts";
-import { Post } from "../models/Post.ts"
+import { User } from "../models/User.ts"
 
 export default {
-	getAllPosts: async ({ response }: RouterContext) => {
-		response.body = await Post.all();
+	getAllUsers: async ({ response }: RouterContext) => {
+		response.body = await User.all();
 	},
 
-	createPost: async ({ request, response }: RouterContext) => {
+	createUser: async ({ request, response }: RouterContext) => {
 		const { username, body } = await request.body().value;
-		Post.create({
+		User.create({
 			username: username,
 			body: body
 		})
 		response.body = { username, body }
 	},
 
-	getPostById: async ({ response, params }: { response: any, params: { id: string } } ) => {
-		const post = await Post.find(params.id)
+	getUserById: async ({ response, params }: { response: any, params: { id: string } } ) => {
+		const post = await User.find(params.id)
 		response.body = post;
 	},
 
-	updatePostById: async ({ request, response, params }: { request: any, response: any, params: { id: string } } ) => {
+	updateUserById: async ({ request, response, params }: { request: any, response: any, params: { id: string } } ) => {
 		const { body } = await request.body().value;
 		
-		const post = await Post.find(params.id)
+		const post = await User.find(params.id)
 		post.body = body;
 		await post.update();
 		response.body = post;
 	},
 
-	deletePostById: async ({ response, params }: { request: any, response: any, params: { id: string } } ) => {
-		const post = await Post.find(params.id)
+	deleteUserById: async ({ response, params }: { request: any, response: any, params: { id: string } } ) => {
+		const post = await User.find(params.id)
 		await post.delete();
 		response.body = post;
 	},

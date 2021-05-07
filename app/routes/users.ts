@@ -5,11 +5,11 @@ const router = new Router();
 import usersController from "../controllers/users.ts"
 
 router
-	.get("/", usersController.getAllPosts)
-	.post("/", usersController.createPost)
-	.get("/:id", usersController.getPostById)
-	.put("/:id", usersController.updatePostById)
-	.delete("/:id", usersController.deletePostById);
+	.get("/", usersController.getAllUsers)
+	.post("/", usersController.createUser)
+	.get("/:id", usersController.getUserById)
+	.put("/:id", usersController.updateUserById)
+	.delete("/:id", usersController.deleteUserById);
 
 
 export default router;
