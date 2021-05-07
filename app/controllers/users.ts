@@ -7,31 +7,34 @@ export default {
 	},
 
 	createUser: async ({ request, response }: RouterContext) => {
-		const { username, body } = await request.body().value;
+		const { username, password, firstname, lastname, role } = await request.body().value;
 		User.create({
 			username: username,
-			body: body
+			password: await User.hashPassword(password),
+			firstname: firstname,
+			lastname: lastname,
+			role: role
 		})
-		response.body = { username, body }
+		response.body = { username, firstname, lastname }
 	},
 
-	getUserById: async ({ response, params }: { response: any, params: { id: string } } ) => {
-		const post = await User.find(params.id)
-		response.body = post;
-	},
+	// getUserById: async ({ response, params }: { response: any, params: { id: string } } ) => {
+	// 	const post = await User.find(params.id)
+	// 	response.body = post;
+	// },
 
-	updateUserById: async ({ request, response, params }: { request: any, response: any, params: { id: string } } ) => {
-		const { body } = await request.body().value;
+	// updateUserById: async ({ request, response, params }: { request: any, response: any, params: { id: string } } ) => {
+	// 	const { body } = await request.body().value;
 		
-		const post = await User.find(params.id)
-		post.body = body;
-		await post.update();
-		response.body = post;
-	},
+	// 	const post = await User.find(params.id)
+	// 	post.body = body;
+	// 	await post.update();
+	// 	response.body = post;
+	// },
 
-	deleteUserById: async ({ response, params }: { request: any, response: any, params: { id: string } } ) => {
-		const post = await User.find(params.id)
-		await post.delete();
-		response.body = post;
-	},
+	// deleteUserById: async ({ response, params }: { request: any, response: any, params: { id: string } } ) => {
+	// 	const post = await User.find(params.id)
+	// 	await post.delete();
+	// 	response.body = post;
+	// },
 };
