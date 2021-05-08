@@ -18,23 +18,34 @@ export default {
 		response.body = { username, firstname, lastname }
 	},
 
-	// getUserById: async ({ response, params }: { response: any, params: { id: string } } ) => {
-	// 	const post = await User.find(params.id)
-	// 	response.body = post;
-	// },
+	getUserById: async ({ response, params }: { response: any, params: { id: string } } ) => {
+		const user = await User.find(params.id)
+		response.body = user;
+	},
 
-	// updateUserById: async ({ request, response, params }: { request: any, response: any, params: { id: string } } ) => {
-	// 	const { body } = await request.body().value;
+	updateUserById: async ({ request, response, params }: { request: any, response: any, params: { id: string } } ) => {
+		const { username, password, firstname, lastname } = await request.body().value;
 		
-	// 	const post = await User.find(params.id)
-	// 	post.body = body;
-	// 	await post.update();
-	// 	response.body = post;
-	// },
+		const user = await User.find(params.id)
+		if (username) {
+			user.username = username
+		}
+		if (password) {
+			user.password = User.hashPassword(password)
+		}
+		if (firstname) {
+			user.firstname = firstname
+		}
+		if (lastname) {
+			user.lastname = lastname
+		}
+		await user.update();
+		response.body = user;
+	},
 
-	// deleteUserById: async ({ response, params }: { request: any, response: any, params: { id: string } } ) => {
-	// 	const post = await User.find(params.id)
-	// 	await post.delete();
-	// 	response.body = post;
-	// },
+	deleteUserById: async ({ response, params }: { request: any, response: any, params: { id: string } } ) => {
+		const user = await User.find(params.id)
+		await user.delete();
+		response.body = user;
+	},
 };

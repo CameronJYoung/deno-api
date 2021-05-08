@@ -42,7 +42,19 @@ GET http://localhost:8080/api/users
 
 ###
 
-GET http://localhost:8080/api/users/2
+GET http://localhost:8080/api/users/1
+
+###
+
+PUT http://localhost:8080/api/users/5
+Content-Type: application/json
+
+// Put updated data here
+
+{
+	"username": "bigdaddy456",
+	"password": "fuckinghumongouscock2"
+}
 
 ###
 
@@ -52,9 +64,15 @@ Content-Type: application/json
 // Put post data here
 
 {
-	"username" : "cameronape",
-	"password" : "testing",
-	"firstname" : "cameron",
-	"lastname" : "young",
-	"role" : "admin"
+	"username": "furrybasher",
+	"password": "ILOVEFURRIES",
+	"firstname": "dom",
+	"lastname": "gibson",
+	"role": "user"
 }
+
+###
+
+DELETE http://localhost:8080/api/users/3
+
+###
