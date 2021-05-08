@@ -31,7 +31,7 @@ export default {
 			user.username = username
 		}
 		if (password) {
-			user.password = User.hashPassword(password)
+			user.password = await User.hashPassword(password)
 		}
 		if (firstname) {
 			user.firstname = firstname
