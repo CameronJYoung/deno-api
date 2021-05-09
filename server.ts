@@ -1,4 +1,4 @@
-import { Application, Router, RouterContext } from "./deps.ts";
+import { Application, Router, RouterContext, Relationships } from "./deps.ts";
 
 //route imports
 import postRoutes from './app/routes/posts.ts'
@@ -6,11 +6,15 @@ import userRoutes from './app/routes/users.ts'
 
 //db and model imports
 import db from './app/config/db.ts'
-import modelArray from './app/models/index.ts'
+import {User} from './app/models/User.ts'
+import {Post} from './app/models/Post.ts'
+
+//init model relationships
+Relationships.belongsTo(Post, User);
 
 //init db with models
-db.link(modelArray);
-await db.sync({ drop: false });
+db.link([User, Post]);
+await db.sync({ drop: true });
 
 //setup oak app
 const port = 8080;

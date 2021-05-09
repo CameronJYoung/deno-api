@@ -9,7 +9,7 @@ export type {
 
 // DENODB deps
 export {
-	Database, PostgresConnector, DataTypes, Model
+	Database, PostgresConnector, DataTypes, Model, Relationships
 } from "https://deno.land/x/denodb/mod.ts";
 
 // NANOID deps
