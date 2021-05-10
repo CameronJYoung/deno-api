@@ -20,6 +20,11 @@ export default {
 		response.body = post;
 	},
 
+	getPostUserById: async ({ response, params }: { response: any, params: { id: string } } ) => {
+		const user = await Post.where('postid', params.id).user();
+		response.body = user;
+	},
+
 	updatePostById: async ({ request, response, params }: { request: any, response: any, params: { id: string } } ) => {
 		const { body } = await request.body().value;
 

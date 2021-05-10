@@ -8,6 +8,7 @@ router
 	.get("/", postController.getAllPosts)
 	.post("/", postController.createPost)
 	.get("/:id", postController.getPostById)
+	.get("/:id/user", postController.getPostUserById)
 	.put("/:id", postController.updatePostById)
 	.delete("/:id", postController.deletePostById);
 

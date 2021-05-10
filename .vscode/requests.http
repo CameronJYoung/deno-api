@@ -10,6 +10,10 @@ GET http://localhost:8080/api/posts/1
 
 ###
 
+GET http://localhost:8080/api/posts/1/user
+
+###
+
 PUT http://localhost:8080/api/posts/1
 Content-Type: application/json
 
