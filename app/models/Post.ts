@@ -7,8 +7,7 @@ export class Post extends Model {
 	static timestamps = true;
 
 	static fields = {
-		Postid: { primaryKey: true, autoIncrement: true },
-		username: {type: DataTypes.STRING},
+		postid: { primaryKey: true, autoIncrement: true, type: DataTypes.INTEGER },
 		body: {type: DataTypes.STRING},
 	};
 

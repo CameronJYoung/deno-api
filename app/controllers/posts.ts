@@ -7,12 +7,12 @@ export default {
 	},
 
 	createPost: async ({ request, response }: RouterContext) => {
-		const { username, body } = await request.body().value;
+		const { userId, body } = await request.body().value;
 		Post.create({
-			username: username,
+			userId: 1,
 			body: body
 		})
-		response.body = { username, body }
+		response.body = { userId, body }
 	},
 
 	getPostById: async ({ response, params }: { response: any, params: { id: string } } ) => {
@@ -22,7 +22,7 @@ export default {
 
 	updatePostById: async ({ request, response, params }: { request: any, response: any, params: { id: string } } ) => {
 		const { body } = await request.body().value;
-		
+
 		const post = await Post.find(params.id)
 		post.body = body;
 		await post.update();

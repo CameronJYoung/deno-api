@@ -28,7 +28,7 @@ Content-Type: application/json
 // Put post data here
 
 {
-	"username": "test user",
+	"userId": 1,
 	"body": "Some really cool post!"
 }
 
@@ -64,11 +64,11 @@ Content-Type: application/json
 // Put post data here
 
 {
-	"username": "furrybasher",
-	"password": "ILOVEFURRIES",
-	"firstname": "dom",
-	"lastname": "gibson",
-	"role": "user"
+	"username": "cameronape",
+	"password": "password",
+	"firstname": "cam",
+	"lastname": "young",
+	"role": "admin"
 }
 
 ###

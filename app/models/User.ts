@@ -16,7 +16,7 @@ export class User extends Model {
 	static timestamps = true;
 
 	static fields = {
-		Userid: { primaryKey: true, autoIncrement: true },
+		Userid: { primaryKey: true, autoIncrement: true, type: DataTypes.INTEGER },
 		username: {type: DataTypes.STRING},
 		password: {type: DataTypes.TEXT},
 		firstname: {type: DataTypes.STRING},
