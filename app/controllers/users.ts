@@ -23,9 +23,14 @@ export default {
 		response.body = user;
 	},
 
+	getUserPostsById: async ({ response, params }: { response: any, params: { id: string } } ) => {
+		const user = await User.where('userid', params.id).posts();
+		response.body = user;
+	},
+
 	updateUserById: async ({ request, response, params }: { request: any, response: any, params: { id: string } } ) => {
 		const { username, password, firstname, lastname } = await request.body().value;
-		
+
 		const user = await User.find(params.id)
 		if (username) {
 			user.username = username
